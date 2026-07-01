@@ -740,15 +740,15 @@
     .meme-title {
       margin-top: 64px;
       font: 800 176px/0.82 var(--font-display);
-      color: rgba(17, 24, 39, 0.82);
+      color: #000;
       letter-spacing: 0;
     }
 
     .meme-expanded {
-      margin-top: 34px;
+      margin-top: 30px;
       max-width: 690px;
       color: rgba(17, 24, 39, 0.78);
-      font: 800 94px/0.92 var(--font-display);
+      font: 800 76px/0.94 var(--font-display);
       letter-spacing: 0;
     }
 
@@ -955,13 +955,42 @@
       bottom: 0;
       width: 610px;
       height: 286px;
+      background: #151a1c;
+    }
+
+    .flow-battery img {
+      object-position: center top;
+      transform: scale(1.14);
+      transform-origin: center 18%;
     }
 
     .flow-fatigue {
       right: 0;
-      top: 238px;
-      width: 480px;
-      height: 470px;
+      top: 126px;
+      width: 380px;
+      height: 584px;
+    }
+
+    .flow-fatigue header {
+      height: 82px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .flow-fatigue .flow-module-title {
+      gap: 10px;
+      font-size: 22px;
+    }
+
+    .flow-fatigue .flow-module-tag {
+      margin-left: 40px;
+    }
+
+    .flow-fatigue img {
+      height: calc(100% - 82px);
+      object-position: top center;
     }
 
     .flow-hub {
@@ -1045,11 +1074,11 @@
     }
 
     .hub-pills span {
-      padding: 11px 8px;
+      padding: 11px 6px;
       border-radius: 12px;
       background: rgba(23, 105, 232, 0.09);
       color: var(--blue);
-      font: 800 16px/1 var(--font-display);
+      font: 800 18px/1 var(--font-display);
     }
 
     /* ===========================================
@@ -1514,7 +1543,6 @@
         <div class="slide-number">04 / 09</div>
         <div class="solution-layout">
           <div class="solution-title-stack">
-            <div class="solution-kicker reveal-left" data-editable>Mercedes AI Agent</div>
             <h2 class="meme-title reveal-left delay-1" data-editable>MEME</h2>
             <p class="meme-expanded reveal-left delay-2" data-editable>(Mercedes Enhanced Mobility Engine)</p>
             <div class="solution-role reveal-left delay-3" data-editable>Unified AI Agent</div>
@@ -1524,7 +1552,7 @@
               <article class="advantage-item">
                 <div class="advantage-rule"></div>
                 <h3 data-editable>Personalized Memory</h3>
-                <p data-editable>Learns driver habits, preferred routes, charging patterns, and comfort choices so recommendations feel personal.</p>
+                <p data-editable>Learns driver habits, preferred stops, routes, and charging patterns so recommendations feel more personal.</p>
               </article>
               <article class="advantage-item">
                 <div class="advantage-rule"></div>
@@ -1534,7 +1562,7 @@
               <article class="advantage-item">
                 <div class="advantage-rule"></div>
                 <h3 data-editable>Adaptive Learning</h3>
-                <p data-editable>Gets smarter as drivers accept, ignore, or adjust suggestions, making each trip better than the last.</p>
+                <p data-editable>Adapts to driver feedback and driving style to improve future recommendations and energy-use predictions.</p>
               </article>
             </div>
           </div>
@@ -1552,10 +1580,10 @@
           <svg class="flow-lines" viewBox="0 0 1748 786" aria-hidden="true">
             <path class="data-link" d="M610 286 C690 286 704 350 744 390" />
             <path class="data-link" d="M610 646 C700 646 708 488 744 456" />
-            <path class="data-link" d="M1260 468 C1220 468 1192 414 1104 398" />
+            <path class="data-link" d="M1368 418 C1284 418 1192 426 1104 426" />
             <path class="data-flow" d="M610 286 C690 286 704 350 744 390" />
             <path class="data-flow flow-green" d="M610 646 C700 646 708 488 744 456" />
-            <path class="data-flow flow-amber" d="M1260 468 C1220 468 1192 414 1104 398" />
+            <path class="data-flow flow-amber" d="M1368 418 C1284 418 1192 426 1104 426" />
           </svg>
 
           <article class="flow-module flow-road reveal-scale delay-1">
