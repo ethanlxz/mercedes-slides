@@ -1104,85 +1104,137 @@
     }
 
     /* ===========================================
-       SLIDE 6: AI VS NO AI
+       SLIDE 7: AI VS NO AI
        Clear scenario comparison for hackathon judges.
        =========================================== */
-    .comparison-layout {
+    .agent-table {
       position: relative;
       z-index: 2;
-      margin-top: 52px;
+      margin-top: 42px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(17, 24, 39, 0.12);
+      box-shadow: 0 30px 80px rgba(22, 52, 91, 0.14);
+    }
+
+    .agent-comparison-slide .slide-title {
+      max-width: 1660px;
+      font-size: 60px;
+      line-height: 1.04;
+    }
+
+    .agent-comparison-slide .agent-table {
+      margin-top: 32px;
+    }
+
+    .agent-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 32px;
+      grid-template-columns: 320px 1fr 1fr 360px;
     }
 
-    .scenario-list {
-      display: grid;
-      gap: 18px;
+    .agent-cell {
+      min-height: 158px;
+      padding: 22px 28px;
+      border-right: 1px solid rgba(17, 24, 39, 0.12);
+      border-bottom: 1px solid rgba(17, 24, 39, 0.10);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .scenario-card {
-      padding: 26px;
-      min-height: 128px;
+    .agent-cell:nth-child(4n) {
+      border-right: 0;
     }
 
-    .scenario-card strong {
-      display: block;
+    .agent-cell:nth-last-child(-n + 4) {
+      border-bottom: 0;
+    }
+
+    .agent-header {
+      min-height: 112px;
+      background: rgba(246, 249, 252, 0.88);
       color: var(--ink);
-      font: 800 28px/1.05 var(--font-display);
+      font: 800 28px/1.12 var(--font-display);
     }
 
-    .scenario-card span {
-      display: block;
-      margin-top: 10px;
-      color: var(--muted);
-      font: 500 21px/1.32 var(--font-body);
+    .agent-header:first-child {
+      color: rgba(17, 24, 39, 0.36);
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .versus-table {
-      padding: 26px;
+    .agent-header.with {
+      color: var(--blue);
+      background: linear-gradient(135deg, rgba(23, 105, 232, 0.12), rgba(36, 180, 107, 0.08));
     }
 
-    .versus-head,
-    .versus-row {
-      display: grid;
-      grid-template-columns: 0.9fr 1fr;
+    .agent-header.combined {
+      color: #16643e;
+      background: linear-gradient(135deg, rgba(36, 180, 107, 0.13), rgba(245, 165, 36, 0.08));
+    }
+
+    .agent-row-title {
       gap: 18px;
+      font: 800 27px/1.16 var(--font-display);
+      color: var(--ink);
     }
 
-    .versus-head {
-      margin-bottom: 18px;
-    }
-
-    .versus-head div {
-      padding: 18px 20px;
-      border-radius: 16px;
-      font: 800 22px/1 var(--font-display);
-    }
-
-    .without-head {
-      background: rgba(17, 24, 39, 0.08);
-      color: #334155;
-    }
-
-    .with-head {
-      background: rgba(23, 105, 232, 0.12);
+    .agent-row-title svg,
+    .feature-chip svg {
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
       color: var(--blue);
     }
 
-    .versus-row {
-      padding: 15px 0;
-      border-top: 1px solid rgba(17, 24, 39, 0.08);
+    .agent-cell p {
+      color: var(--ink);
+      font: 500 24px/1.26 var(--font-body);
     }
 
-    .versus-row p {
-      color: var(--muted);
-      font: 500 20px/1.34 var(--font-body);
-    }
-
-    .versus-row p:last-child {
+    .agent-cell.with-copy p {
       color: #1e3a5f;
       font-weight: 700;
+    }
+
+    .feature-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .feature-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 38px;
+      padding: 7px 11px;
+      border-radius: 14px;
+      background: rgba(23, 105, 232, 0.08);
+      color: var(--blue);
+      font: 800 15px/1.05 var(--font-display);
+    }
+
+    .feature-chip.green {
+      background: rgba(36, 180, 107, 0.10);
+      color: #16834d;
+    }
+
+    .feature-chip.amber {
+      background: rgba(245, 165, 36, 0.13);
+      color: #a86408;
+    }
+
+    .feature-chip svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .agent-decision {
+      color: var(--muted);
+      font: 600 18px/1.24 var(--font-body);
     }
 
     .impact-row {
@@ -1639,26 +1691,57 @@
         <video class="demo-video" src="mercedes-hackathon-pitch-assets/mercedes-demo.mp4" controls playsinline preload="metadata"></video>
       </section>
 
-      <section class="slide" data-time="0:35" aria-label="AI versus no AI comparison">
+      <section class="slide agent-comparison-slide" data-time="0:35" aria-label="AI versus no AI comparison">
         <div class="deck-mark">AI vs No AI</div>
         <div class="slide-number">07 / 09</div>
-        <h2 class="slide-title reveal delay-1" data-editable>From warning-only features to context-aware assistance.</h2>
-        <div class="comparison-layout">
-          <div class="scenario-list">
-            <article class="card scenario-card reveal-left delay-1"><strong data-editable>Fatigue alert</strong><span data-editable>Instead of only warning the driver, MEME finds a rest stop ahead on the active route.</span></article>
-            <article class="card scenario-card reveal-left delay-2"><strong data-editable>Road trip planning</strong><span data-editable>Natural language becomes a ranked route with stops, timing, and recommendations.</span></article>
-            <article class="card scenario-card reveal-left delay-3"><strong data-editable>Low EV battery</strong><span data-editable>Battery prediction is connected to route context, so charging can be recommended before anxiety starts.</span></article>
-            <article class="card scenario-card reveal-left delay-4"><strong data-editable>Personalization</strong><span data-editable>Accepted and dismissed places teach the system what the driver actually likes.</span></article>
-          </div>
-          <div class="card versus-table reveal-scale delay-2">
-            <div class="versus-head">
-              <div class="without-head">Without Central AI Agent</div>
-              <div class="with-head">With Central AI Agent</div>
+        <h2 class="slide-title reveal delay-1" data-editable>MEME connects isolated features into one decision.</h2>
+        <div class="card agent-table reveal-scale delay-2">
+          <div class="agent-grid">
+            <div class="agent-cell agent-header" data-editable>Driving Moment</div>
+            <div class="agent-cell agent-header" data-editable>Without MEME AI Agent</div>
+            <div class="agent-cell agent-header with" data-editable>With MEME AI Agent</div>
+            <div class="agent-cell agent-header combined" data-editable>Features Combined</div>
+
+            <div class="agent-cell agent-row-title">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="8" width="22" height="32" rx="4"/><path d="M18 4h10"/><path d="M25 14l-7 12h7l-4 8 10-14h-7l1-6Z"/></g></svg>
+              <span data-editable>Low EV battery</span>
             </div>
-            <div class="versus-row"><p data-editable>Driver manually searches while tired.</p><p data-editable>AI recommends a route-relative rest stop in one tap.</p></div>
-            <div class="versus-row"><p data-editable>Driver plans each destination one by one.</p><p data-editable>AI parses intent and creates the route automatically.</p></div>
-            <div class="versus-row"><p data-editable>Driver guesses when and where to charge.</p><p data-editable>AI predicts usage and suggests the right charging moment.</p></div>
-            <div class="versus-row"><p data-editable>Every trip starts from zero.</p><p data-editable>Every trip improves future recommendations.</p></div>
+            <div class="agent-cell"><p data-editable>Driver worries about battery levels and searches for charging stations manually.</p></div>
+            <div class="agent-cell with-copy"><p data-editable>AI predicts battery usage before the trip and recommends the best charging station based on the route beforehand.</p></div>
+            <div class="agent-cell">
+              <div class="feature-stack" aria-label="Combined features">
+                <span class="feature-chip"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 39V12l10-4 10 4 8-3v27l-8 3-10-4-10 4Z"/><path d="M20 8v27M30 12v27"/><path d="M15 22c5-4 11 5 18-1"/></g></svg><span data-editable>Road Trip Planner</span></span>
+                <span class="feature-chip green"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="8" width="22" height="32" rx="4"/><path d="M18 4h10"/><path d="M25 14l-7 12h7l-4 8 10-14h-7l1-6Z"/></g></svg><span data-editable>EV Battery Predictor</span></span>
+              </div>
+              <div class="agent-decision" data-editable>Agent chooses when and where to charge before range anxiety starts.</div>
+            </div>
+
+            <div class="agent-cell agent-row-title">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10h24a4 4 0 0 1 4 4v24l-8-5H12a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4Z"/><path d="M17 21h14M17 28h8"/><path d="M34 18l3 3 5-6"/></g></svg>
+              <span data-editable>Personalized recommendations</span>
+            </div>
+            <div class="agent-cell"><p data-editable>The system treats every trip the same and does not remember driver preferences.</p></div>
+            <div class="agent-cell with-copy"><p data-editable>AI learns your habits and recommends places and routes based on your preferences.</p></div>
+            <div class="agent-cell">
+              <div class="feature-stack" aria-label="Combined features">
+                <span class="feature-chip amber"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10h24a4 4 0 0 1 4 4v24l-8-5H12a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4Z"/><path d="M17 21h14M17 28h8"/><path d="M34 18l3 3 5-6"/></g></svg><span data-editable>Personalized Memory</span></span>
+              </div>
+              <div class="agent-decision" data-editable>Agent remembers accepted stops, skipped places, and route habits to make the next trip smarter.</div>
+            </div>
+
+            <div class="agent-cell agent-row-title">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="19" r="8"/><path d="M11 40c2-9 8-14 13-14s11 5 13 14"/><path d="M35 12l4-4M39 18h5M9 18H4"/></g></svg>
+              <span data-editable>Driver feels tired</span>
+            </div>
+            <div class="agent-cell"><p data-editable>Driver gets a fatigue alert and has to manually search for a nearby rest stop while driving.</p></div>
+            <div class="agent-cell with-copy"><p data-editable>AI detects fatigue and recommends the best nearby rest stop within one tap.</p></div>
+            <div class="agent-cell">
+              <div class="feature-stack" aria-label="Combined features">
+                <span class="feature-chip green"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="19" r="8"/><path d="M11 40c2-9 8-14 13-14s11 5 13 14"/><path d="M35 12l4-4M39 18h5M9 18H4"/></g></svg><span data-editable>Driver Fatigue Detection</span></span>
+                <span class="feature-chip"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 39V12l10-4 10 4 8-3v27l-8 3-10-4-10 4Z"/><path d="M20 8v27M30 12v27"/><path d="M15 22c5-4 11 5 18-1"/></g></svg><span data-editable>Road Trip Planner</span></span>
+              </div>
+              <div class="agent-decision" data-editable>Agent links tiredness with route context and chooses a useful rest stop ahead.</div>
+            </div>
           </div>
         </div>
       </section>
