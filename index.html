@@ -650,42 +650,64 @@
        SLIDE 3: PROBLEM STATEMENT
        Three cards map the exact user-provided problem statements.
        =========================================== */
-    .problem-grid {
+    .problem-content {
       position: relative;
       z-index: 2;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 8px;
+    }
+
+    .problem-grid {
+      width: 1588px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      margin-top: 72px;
+      gap: 26px;
+      margin-top: 58px;
+      align-items: stretch;
     }
 
     .problem-card {
-      min-height: 480px;
+      min-height: 500px;
       padding: 34px;
+      display: flex;
+      flex-direction: column;
     }
 
     .problem-index {
-      width: 58px;
-      height: 58px;
+      width: 66px;
+      height: 66px;
       border-radius: 18px;
       display: grid;
       place-items: center;
       color: #fff;
       background: var(--blue);
-      font: 800 24px/1 var(--font-display);
+      font: 800 28px/1 var(--font-display);
       box-shadow: 0 18px 34px rgba(23, 105, 232, 0.22);
     }
 
     .problem-card h3 {
       margin-top: 32px;
       color: var(--ink);
-      font: 800 40px/1.04 var(--font-display);
+      font: 800 43px/1.05 var(--font-display);
     }
 
     .problem-card p {
       margin-top: 22px;
       color: var(--muted);
-      font: 500 25px/1.38 var(--font-body);
+      font: 500 29px/1.3 var(--font-body);
+    }
+
+    .problem-slide .slide-title {
+      max-width: 1520px;
+      margin-top: 0;
+      text-align: center;
+      font-size: 86px;
+      line-height: 1;
     }
 
     .problem-strip {
@@ -1566,27 +1588,29 @@
         </div>
       </section>
 
-      <section class="slide" data-time="0:30" aria-label="Problem statement">
+      <section class="slide problem-slide" data-time="0:30" aria-label="Problem statement">
         <div class="deck-mark">Problem Statement</div>
         <div class="slide-number">03 / 09</div>
-        <h2 class="slide-title reveal delay-1" data-editable>The Paradox of the Connected Car.</h2>
-        <p class="slide-subtitle reveal delay-2" data-editable>Three problems keeping today's vehicle features from actually improving the driving experience.</p>
-        <div class="problem-grid">
-          <article class="card problem-card reveal delay-1">
-            <div class="problem-index">01</div>
-            <h3 data-editable>Lack of Personalization</h3>
-            <p data-editable>Current systems treat every driver the same and do not learn individual habits, leading to inaccurate and irrelevant recommendations.</p>
-          </article>
-          <article class="card problem-card reveal delay-2">
-            <div class="problem-index">02</div>
-            <h3 data-editable>Data is Collected but Not Used Wisely</h3>
-            <p data-editable>Modern cars collect driving style, battery usage, and location patterns, but this data rarely helps the driver in real time.</p>
-          </article>
-          <article class="card problem-card reveal delay-3">
-            <div class="problem-index">03</div>
-            <h3 data-editable>Isolated Vehicle Systems</h3>
-            <p data-editable>Smart features operate alone instead of working together, resulting in an inefficient and disconnected driving experience.</p>
-          </article>
+        <div class="problem-content">
+          <h2 class="slide-title reveal delay-1" data-editable>The Paradox of the Connected Car.</h2>
+          <!-- <p class="slide-subtitle reveal delay-2" data-editable>Three problems keeping today's vehicle features from actually improving the driving experience.</p> -->
+          <div class="problem-grid">
+            <article class="card problem-card reveal delay-1">
+              <div class="problem-index">01</div>
+              <h3 data-editable>Lack of Personalization</h3>
+              <p data-editable>Current systems treat every driver the same and do not learn individual habits, leading to inaccurate and irrelevant recommendations.</p>
+            </article>
+            <article class="card problem-card reveal delay-2">
+              <div class="problem-index">02</div>
+              <h3 data-editable>Data is Collected but Not Used Wisely</h3>
+              <p data-editable>Modern cars collect driving style, battery usage, and location patterns, but this data rarely helps the driver in real time.</p>
+            </article>
+            <article class="card problem-card reveal delay-3">
+              <div class="problem-index">03</div>
+              <h3 data-editable>Isolated Vehicle Systems</h3>
+              <p data-editable>Smart features operate alone instead of working together, resulting in an inefficient and disconnected driving experience.</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -1706,41 +1730,41 @@
               <svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="8" width="22" height="32" rx="4"/><path d="M18 4h10"/><path d="M25 14l-7 12h7l-4 8 10-14h-7l1-6Z"/></g></svg>
               <span data-editable>Low EV battery</span>
             </div>
-            <div class="agent-cell"><p data-editable>Driver worries about battery levels and searches for charging stations manually.</p></div>
-            <div class="agent-cell with-copy"><p data-editable>AI predicts battery usage before the trip and recommends the best charging station based on the route beforehand.</p></div>
+            <div class="agent-cell"><p data-editable>Driver manually searches for charging stations.</p></div>
+            <div class="agent-cell with-copy"><p data-editable>AI predicts battery usage and proactively recommends charging trips in advance.</p></div>
             <div class="agent-cell">
               <div class="feature-stack" aria-label="Combined features">
                 <span class="feature-chip"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 39V12l10-4 10 4 8-3v27l-8 3-10-4-10 4Z"/><path d="M20 8v27M30 12v27"/><path d="M15 22c5-4 11 5 18-1"/></g></svg><span data-editable>Road Trip Planner</span></span>
                 <span class="feature-chip green"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="8" width="22" height="32" rx="4"/><path d="M18 4h10"/><path d="M25 14l-7 12h7l-4 8 10-14h-7l1-6Z"/></g></svg><span data-editable>EV Battery Predictor</span></span>
               </div>
-              <div class="agent-decision" data-editable>Agent chooses when and where to charge before range anxiety starts.</div>
+              <!-- <div class="agent-decision" data-editable>Agent chooses when and where to charge before range anxiety starts.</div> -->
             </div>
 
             <div class="agent-cell agent-row-title">
               <svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10h24a4 4 0 0 1 4 4v24l-8-5H12a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4Z"/><path d="M17 21h14M17 28h8"/><path d="M34 18l3 3 5-6"/></g></svg>
               <span data-editable>Personalized recommendations</span>
             </div>
-            <div class="agent-cell"><p data-editable>The system treats every trip the same and does not remember driver preferences.</p></div>
-            <div class="agent-cell with-copy"><p data-editable>AI learns your habits and recommends places and routes based on your preferences.</p></div>
+            <div class="agent-cell"><p data-editable>Every trip starts from scratch.</p></div>
+            <div class="agent-cell with-copy"><p data-editable>AI learns your habits and personalizes every trip.</p></div>
             <div class="agent-cell">
               <div class="feature-stack" aria-label="Combined features">
                 <span class="feature-chip amber"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10h24a4 4 0 0 1 4 4v24l-8-5H12a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4Z"/><path d="M17 21h14M17 28h8"/><path d="M34 18l3 3 5-6"/></g></svg><span data-editable>Personalized Memory</span></span>
               </div>
-              <div class="agent-decision" data-editable>Agent remembers accepted stops, skipped places, and route habits to make the next trip smarter.</div>
+              <div class="agent-decision" data-editable>Remembers accepted and skipped road trip stops.</div>
             </div>
 
             <div class="agent-cell agent-row-title">
               <svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="19" r="8"/><path d="M11 40c2-9 8-14 13-14s11 5 13 14"/><path d="M35 12l4-4M39 18h5M9 18H4"/></g></svg>
               <span data-editable>Driver feels tired</span>
             </div>
-            <div class="agent-cell"><p data-editable>Driver gets a fatigue alert and has to manually search for a nearby rest stop while driving.</p></div>
-            <div class="agent-cell with-copy"><p data-editable>AI detects fatigue and recommends the best nearby rest stop within one tap.</p></div>
+            <div class="agent-cell"><p data-editable>Driver gets a fatigue alert and has to manually search for a nearby rest stop.</p></div>
+            <div class="agent-cell with-copy"><p data-editable>AI detects fatigue and proatively recommends the best nearby rest stop.</p></div>
             <div class="agent-cell">
               <div class="feature-stack" aria-label="Combined features">
                 <span class="feature-chip green"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="19" r="8"/><path d="M11 40c2-9 8-14 13-14s11 5 13 14"/><path d="M35 12l4-4M39 18h5M9 18H4"/></g></svg><span data-editable>Driver Fatigue Detection</span></span>
                 <span class="feature-chip"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 39V12l10-4 10 4 8-3v27l-8 3-10-4-10 4Z"/><path d="M20 8v27M30 12v27"/><path d="M15 22c5-4 11 5 18-1"/></g></svg><span data-editable>Road Trip Planner</span></span>
               </div>
-              <div class="agent-decision" data-editable>Agent links tiredness with route context and chooses a useful rest stop ahead.</div>
+              <!-- <div class="agent-decision" data-editable>Agent links tiredness with route context and chooses a useful rest stop ahead.</div> -->
             </div>
           </div>
         </div>
