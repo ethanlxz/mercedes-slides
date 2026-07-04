@@ -1288,94 +1288,97 @@
     }
 
     /* ===========================================
-       SLIDE 7: FUTURE IMPLEMENTATION
-       Replaces placeholder roadmap copy with concrete next steps.
+       SLIDE 8: FUTURE IMPLEMENTATION
+       Short hackathon-style next steps for the Mercedes agent.
        =========================================== */
-    .roadmap {
+    .future-agent-layout {
       position: relative;
       z-index: 2;
-      margin-top: 68px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
+      grid-template-columns: 0.96fr 1.04fr;
+      gap: 76px;
+      height: 100%;
+      align-items: center;
+      padding-top: 26px;
     }
 
-    .roadmap::before {
-      content: "";
-      position: absolute;
-      left: 110px;
-      right: 110px;
-      top: 56px;
-      height: 4px;
-      border-radius: 4px;
-      background: linear-gradient(90deg, var(--blue), var(--green), var(--amber));
-      opacity: 0.32;
+    .future-agent-copy .slide-title {
+      max-width: 780px;
+      font-size: 82px;
+      line-height: 0.98;
     }
 
-    .roadmap-card {
-      position: relative;
-      min-height: 570px;
-      padding: 30px;
+    .future-agent-copy .slide-subtitle {
+      max-width: 760px;
+      font-size: 32px;
+      line-height: 1.32;
     }
 
-    .roadmap-dot {
-      position: relative;
-      z-index: 2;
-      width: 78px;
-      height: 78px;
-      display: grid;
-      place-items: center;
-      border-radius: 24px;
-      background: var(--blue);
-      color: #fff;
-      font: 800 25px/1 var(--font-display);
-      box-shadow: 0 18px 42px rgba(23, 105, 232, 0.23);
+    .future-agent-copy .pill {
+      margin-top: 44px;
+      height: 58px;
+      font-size: 20px;
     }
 
-    .roadmap-card:nth-child(3) .roadmap-dot {
-      background: var(--green);
+    .module-panel {
+      padding: 40px;
+      overflow: hidden;
     }
 
-    .roadmap-card:nth-child(4) .roadmap-dot {
-      background: var(--amber);
-    }
-
-    .roadmap-card h3 {
-      margin-top: 34px;
-      font: 800 34px/1.04 var(--font-display);
+    .module-panel h3 {
       color: var(--ink);
+      font: 800 42px/1 var(--font-display);
     }
 
-    .roadmap-card p {
-      margin-top: 18px;
-      color: var(--muted);
-      font: 500 22px/1.34 var(--font-body);
-    }
-
-    .roadmap-card ul {
-      margin: 24px 0 0;
-      padding: 0;
-      list-style: none;
+    .module-grid {
       display: grid;
-      gap: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 28px;
     }
 
-    .roadmap-card li {
-      position: relative;
-      padding-left: 24px;
-      color: #334155;
-      font: 600 19px/1.3 var(--font-body);
+    .module-chip {
+      min-height: 126px;
+      padding: 26px;
+      border-radius: 22px;
+      background: rgba(246, 249, 252, 0.92);
+      border: 1px solid rgba(17, 24, 39, 0.10);
     }
 
-    .roadmap-card li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 9px;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--blue);
+    .module-chip strong {
+      display: block;
+      color: var(--blue);
+      font: 800 28px/1.04 var(--font-display);
+    }
+
+    .module-chip span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font: 600 20px/1.28 var(--font-body);
+    }
+
+    .upsell-banner {
+      margin-top: 22px;
+      min-height: 132px;
+      padding: 30px 34px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(14, 23, 36, 0.96), rgba(23, 105, 232, 0.88));
+      color: #fff;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 22px;
+      align-items: center;
+      box-shadow: 0 26px 70px rgba(14, 23, 36, 0.22);
+    }
+
+    .upsell-banner strong {
+      font: 800 36px/1 var(--font-display);
+    }
+
+    .upsell-banner span {
+      color: rgba(255, 255, 255, 0.76);
+      font: 600 23px/1.28 var(--font-body);
     }
 
     /* ===========================================
@@ -1770,52 +1773,40 @@
         </div>
       </section>
 
-      <section class="slide" data-time="0:30" aria-label="Future implementation roadmap">
+      <section class="slide" data-time="0:30" aria-label="Future implementation">
         <div class="deck-mark">Future Implementation</div>
         <div class="slide-number">08 / 09</div>
-        <h2 class="slide-title reveal delay-1" data-editable>From hackathon prototype to in-car intelligence.</h2>
-        <p class="slide-subtitle reveal delay-2" data-editable>Each step keeps the same core idea: connect more signals into one driver-controlled recommendation engine.</p>
-        <div class="roadmap">
-          <article class="card roadmap-card reveal delay-1">
-            <div class="roadmap-dot">Now</div>
-            <h3 data-editable>Working prototype</h3>
-            <p data-editable>Core demo is already connected around route planning, fatigue monitoring, battery prediction, and local preference memory.</p>
-            <ul>
-              <li data-editable>FastAPI backend</li>
-              <li data-editable>LangGraph agent flow</li>
-              <li data-editable>Google Maps UI shell</li>
-            </ul>
-          </article>
-          <article class="card roadmap-card reveal delay-2">
-            <div class="roadmap-dot">Next</div>
-            <h3 data-editable>Smarter recommendations</h3>
-            <p data-editable>Improve ranking by combining charger type, stop quality, fatigue severity, traffic, and driver preference weight.</p>
-            <ul>
-              <li data-editable>Route-aware charger scoring</li>
-              <li data-editable>Better accept/dismiss learning</li>
-              <li data-editable>More explainable recommendations</li>
-            </ul>
-          </article>
-          <article class="card roadmap-card reveal delay-3">
-            <div class="roadmap-dot">Pilot</div>
-            <h3 data-editable>Vehicle-ready integration</h3>
-            <p data-editable>Replace demo inputs with real vehicle telemetry and design the interface for a Mercedes-style in-car assistant.</p>
-            <ul>
-              <li data-editable>Live battery and speed signals</li>
-              <li data-editable>MBUX-style notification flow</li>
-              <li data-editable>Privacy and consent controls</li>
-            </ul>
-          </article>
-          <article class="card roadmap-card reveal delay-4">
-            <div class="roadmap-dot">Scale</div>
-            <h3 data-editable>Expandable agent ecosystem</h3>
-            <p data-editable>Weather, traffic, maintenance, and safety modules can plug into the same central decision layer.</p>
-            <ul>
-              <li data-editable>Modular agent registry</li>
-              <li data-editable>Fleet insights without exposing private habits</li>
-              <li data-editable>Continuous improvement per driver</li>
-            </ul>
-          </article>
+        <div class="future-agent-layout">
+          <div class="future-agent-copy">
+            <h2 class="slide-title reveal-left delay-1" data-editable>What's Next for MEME</h2>
+            <p class="slide-subtitle reveal-left delay-2" data-editable>we connect the agent to real Mercedes features, more vehicle modules, and useful digital package recommendations.</p>
+            <div class="pill reveal-left delay-3" data-editable>Next build phase</div>
+          </div>
+          <div class="card module-panel reveal-scale delay-2">
+            <h3 data-editable>What we would implement next</h3>
+            <div class="module-grid">
+              <div class="module-chip">
+                <strong data-editable>01. Feature integration</strong>
+                <span data-editable>Attention Assist, Guard 360, Car-to-X, Dynamic Select</span>
+              </div>
+              <div class="module-chip">
+                <strong data-editable>02. Smarter memory</strong>
+                <span data-editable>learn driver habits, routes, fatigue, charging, and preferences</span>
+              </div>
+              <div class="module-chip">
+                <strong data-editable>03. More modules</strong>
+                <span data-editable>plug in safety, comfort, maintenance, parking, weather, and traffic</span>
+              </div>
+              <div class="module-chip">
+                <strong data-editable>04. Digital package upsell</strong>
+                <span data-editable>recommend Mercedes upgrades only when the driver actually needs them</span>
+              </div>
+            </div>
+            <div class="upsell-banner">
+              <strong data-editable>End goal</strong>
+              <span data-editable>A modular AI layer that gets smarter every time Mercedes connects another feature.</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1824,8 +1815,8 @@
         <div class="slide-number">09 / 09</div>
         <div class="close-layout">
           <div class="close-copy">
-            <h2 class="big-title reveal delay-1" data-editable>MEME makes the EV feel like it finally understands the driver.</h2>
-            <p class="reveal delay-2" data-editable>Our assistant turns scattered vehicle signals into safer interventions, faster planning, smarter charging, and recommendations that improve every trip.</p>
+            <h2 class="big-title reveal delay-1" data-editable>That's all for MEME.</h2>
+            <p class="reveal delay-2" data-editable>Our agent turns scattered vehicle signals into safer interventions, faster planning, smarter charging, and recommendations that improve every trip.</p>
             <!-- <div class="close-metrics">
               <div class="card close-metric reveal delay-2"><strong>Safer</strong><span data-editable>less manual searching during fatigue</span></div>
               <div class="card close-metric reveal delay-3"><strong>Faster</strong><span data-editable>natural-language route planning</span></div>
