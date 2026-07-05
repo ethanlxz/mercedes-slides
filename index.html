@@ -1295,90 +1295,96 @@
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: 0.96fr 1.04fr;
-      gap: 76px;
+      grid-template-rows: auto auto auto;
+      gap: 30px;
+      align-content: start;
       height: 100%;
-      align-items: center;
-      padding-top: 26px;
+      padding: 16px 4px 0;
     }
 
-    .future-agent-copy .slide-title {
-      max-width: 780px;
-      font-size: 82px;
-      line-height: 0.98;
+    .future-agent-header {
+      text-align: center;
+      justify-self: center;
+      max-width: 1320px;
     }
 
-    .future-agent-copy .slide-subtitle {
-      max-width: 760px;
-      font-size: 32px;
-      line-height: 1.32;
+    .future-agent-header .slide-title {
+      margin-top: 18px;
+      font-size: 78px;
+      line-height: 0.96;
     }
 
-    .future-agent-copy .pill {
-      margin-top: 44px;
-      height: 58px;
-      font-size: 20px;
+    .future-agent-header .slide-subtitle {
+      max-width: 1260px;
+      margin: 22px auto 0;
+      font-size: 31px;
+      line-height: 1.34;
     }
 
-    .module-panel {
-      padding: 40px;
+    .future-module-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 46px;
+      align-items: stretch;
+      margin-top: 22px;
+    }
+
+    .future-module-card {
+      min-height: 356px;
+      padding: 38px 48px 36px;
       overflow: hidden;
     }
 
-    .module-panel h3 {
-      color: var(--ink);
-      font: 800 42px/1 var(--font-display);
-    }
-
-    .module-grid {
+    .future-module-icon {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .module-chip {
-      min-height: 126px;
-      padding: 26px;
-      border-radius: 22px;
-      background: rgba(246, 249, 252, 0.92);
-      border: 1px solid rgba(17, 24, 39, 0.10);
-    }
-
-    .module-chip strong {
-      display: block;
+      place-items: center;
+      width: 88px;
+      height: 88px;
+      border-radius: 20px;
       color: var(--blue);
-      font: 800 28px/1.04 var(--font-display);
+      background: rgba(23, 105, 232, 0.08);
+      border: 1px solid rgba(23, 105, 232, 0.10);
     }
 
-    .module-chip span {
+    .future-module-icon svg {
+      width: 50px;
+      height: 50px;
+    }
+
+    .future-module-card h3 {
       display: block;
-      margin-top: 10px;
-      color: var(--muted);
-      font: 600 20px/1.28 var(--font-body);
+      margin: 34px 0 0;
+      color: var(--ink);
+      font: 800 36px/1.1 var(--font-display);
     }
 
-    .upsell-banner {
-      margin-top: 22px;
-      min-height: 132px;
-      padding: 30px 34px;
+    .future-module-card p {
+      display: block;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font: 500 25px/1.32 var(--font-body);
+    }
+
+    .future-goal-banner {
+      min-height: 96px;
+      padding: 20px 42px;
       border-radius: 24px;
       background: linear-gradient(135deg, rgba(14, 23, 36, 0.96), rgba(23, 105, 232, 0.88));
       color: #fff;
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 22px;
+      gap: 28px;
       align-items: center;
       box-shadow: 0 26px 70px rgba(14, 23, 36, 0.22);
     }
 
-    .upsell-banner strong {
-      font: 800 36px/1 var(--font-display);
+    .future-goal-banner strong {
+      font: 800 32px/1 var(--font-display);
     }
 
-    .upsell-banner span {
+    .future-goal-banner span {
       color: rgba(255, 255, 255, 0.76);
-      font: 600 23px/1.28 var(--font-body);
+      font: 600 20px/1.24 var(--font-body);
     }
 
     /* ===========================================
@@ -1777,35 +1783,36 @@
         <div class="deck-mark">Future Implementation</div>
         <div class="slide-number">08 / 09</div>
         <div class="future-agent-layout">
-          <div class="future-agent-copy">
-            <h2 class="slide-title reveal-left delay-1" data-editable>What's Next for MEME</h2>
-            <p class="slide-subtitle reveal-left delay-2" data-editable>We connect the agent to real Mercedes features, more vehicle modules, and useful digital package recommendations.</p>
-            <div class="pill reveal-left delay-3" data-editable>Next build phase</div>
+          <div class="future-agent-header">
+            <h2 class="slide-title reveal delay-1" data-editable>What's Next for MEME</h2>
+            <p class="slide-subtitle reveal delay-2" data-editable>As an AI agent, MEME connects directly to built-in Mercedes systems to unlock new smart features and create natural upsell opportunities.</p>
           </div>
-          <div class="card module-panel reveal-scale delay-2">
-            <h3 data-editable>What we would implement next</h3>
-            <div class="module-grid">
-              <div class="module-chip">
-                <strong data-editable>01. Feature integration</strong>
-                <span data-editable>Attention Assist, Guard 360, Car-to-X, Dynamic Select</span>
+          <div class="future-module-grid">
+            <article class="card future-module-card reveal-scale delay-2">
+              <div class="future-module-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 30h30l-3-9c-.7-2-2.4-3-4.5-3h-15c-2.1 0-3.8 1-4.5 3l-3 9Z"/><path d="M13 30v7M35 30v7"/><circle cx="16" cy="34" r="3.5"/><circle cx="32" cy="34" r="3.5"/><path d="M17 18l3-6h8l3 6"/></g></svg>
               </div>
-              <div class="module-chip">
-                <strong data-editable>02. Smarter memory</strong>
-                <span data-editable>learn driver habits, routes, fatigue, charging, and preferences</span>
+              <h3 data-editable>Native Mercedes Features</h3>
+              <p data-editable>Connect with built-in systems like Attention Assist and Guard 360 so the AI agent can automatically take action to help the driver.</p>
+            </article>
+            <article class="card future-module-card reveal-scale delay-3">
+              <div class="future-module-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 7 8 15l16 8 16-8-16-8Z"/><path d="M8 24l16 8 16-8"/><path d="M8 33l16 8 16-8"/></g></svg>
               </div>
-              <div class="module-chip">
-                <strong data-editable>03. More modules</strong>
-                <span data-editable>plug in safety, comfort, maintenance, parking, weather, and traffic</span>
+              <h3 data-editable>Easy to Add Modules</h3>
+              <p data-editable>Quickly plug in new features like safety or comfort metrics without having to rebuild the core app.</p>
+            </article>
+            <article class="card future-module-card reveal-scale delay-4">
+              <div class="future-module-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 30h14l9-8a4 4 0 0 1 6 1l-13 13H13"/><path d="M13 22h8a5 5 0 0 1 5 5v3"/><path d="M7 21v17h6V21H7Z"/><path d="M26 9v10"/><path d="M22 13h8"/><path d="M29 9.5c-1.2-1.3-4-1.6-5.3-.2-1.4 1.5-.4 3.5 2.3 4.2 3 .8 4.1 2.8 2.6 4.4-1.5 1.6-4.5 1.2-5.9-.3"/></g></svg>
               </div>
-              <div class="module-chip">
-                <strong data-editable>04. Digital package upsell</strong>
-                <span data-editable>recommend Mercedes upgrades only when the driver actually needs them</span>
-              </div>
-            </div>
-            <div class="upsell-banner">
-              <strong data-editable>End goal</strong>
-              <span data-editable>A modular AI layer that gets smarter every time Mercedes connects another feature.</span>
-            </div>
+              <h3 data-editable>Smart Digital Upsells</h3>
+              <p data-editable>Suggest helpful Mercedes digital upgrades at the exact moment the driver actually needs them.</p>
+            </article>
+          </div>
+          <div class="future-goal-banner reveal delay-4">
+            <strong data-editable>End Goal</strong>
+            <span data-editable>A modular AI layer that gets smarter as Mercedes connects more native features, modules, and digital upgrades.</span>
           </div>
         </div>
       </section>
